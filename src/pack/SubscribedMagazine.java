@@ -3,13 +3,14 @@ package pack;
 import java.util.Date;
 
 public class SubscribedMagazine {
+    private int id;
+    private String name;
     private Date dateOfBegin;
     private Date dateOfEnd;
     private int cost;
-    private  int period;
-    private  String deliveryType;
-    private String name;
-    private int id;
+    private String period;
+    private String deliveryType;
+
 
     public Date getDateOfBegin() {
         return dateOfBegin;
@@ -35,11 +36,11 @@ public class SubscribedMagazine {
         this.cost = cost;
     }
 
-    public int getPeriod() {
+    public String getPeriod() {
         return period;
     }
 
-    public void setPeriod(int period) {
+    public void setPeriod(String period) {
         this.period = period;
     }
 
