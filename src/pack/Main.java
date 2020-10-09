@@ -14,8 +14,9 @@ public class Main {
         Changer receivedChanger = new Changer("received",6,columnsReceived);
         Changer employeeChanger = new Changer("employee", 2, columnsEmployee);
         //subscribedChanger.addRecord();
+        //receivedChanger.deleteRecord();
         //InformationAboutMagazines.getInformation();
-        InformationAboutMagazines.getSubscribedInformation();
+        InformationAboutMagazines.getReceivedInformation();
     }
 
 }

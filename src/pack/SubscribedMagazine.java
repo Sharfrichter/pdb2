@@ -10,7 +10,7 @@ public class SubscribedMagazine {
     private Date dateOfBegin;
     private Date dateOfEnd;
     private int cost;
-    private String period;
+    private int period;
     private String deliveryType;
 
 
@@ -38,11 +38,11 @@ public class SubscribedMagazine {
         this.cost = cost;
     }
 
-    public String getPeriod() {
+    public int getPeriod() {
         return period;
     }
 
-    public void setPeriod(String period) {
+    public void setPeriod(int period) {
         this.period = period;
     }
 

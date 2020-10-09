@@ -1,6 +1,8 @@
 package pack;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class ReceivedMagazine {
 
@@ -57,5 +59,11 @@ public class ReceivedMagazine {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        return id + " " + name + " " + format.format(receiveDate)  + " " + number + " " + employeeName + " " + position;
     }
 }
