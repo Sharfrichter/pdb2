@@ -16,7 +16,7 @@ public class Main {
         //subscribedChanger.addRecord();
         //receivedChanger.deleteRecord();
         //InformationAboutMagazines.getInformation();
-        InformationAboutMagazines.getReceivedInformation();
+        InformationAboutMagazines.getInformationAboutEmployee();
     }
 
 }

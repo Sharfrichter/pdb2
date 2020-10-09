@@ -69,7 +69,6 @@ public abstract class InformationAboutMagazines {
         }
 
     }
-
     public static void getReceivedInformation(){
         try {
             Scanner scanner=new Scanner(System.in);
@@ -130,5 +129,38 @@ public abstract class InformationAboutMagazines {
             e.printStackTrace();
         }
 
+    }
+    public static void getInformationAboutEmployee(){
+        try {
+            SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            Scanner scanner = new Scanner(System.in);
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbz2", "root", "root");
+            System.out.println("Введите id издания, месяц и год получения");
+            int id = scanner.nextInt();
+            int month = scanner.nextInt();
+            int year = scanner.nextInt();
+            List<ReceivedMagazine> receivedMagazineList = new ArrayList<>();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM received");
+            while (resultSet.next()) {
+                ReceivedMagazine magazine = new ReceivedMagazine();
+                magazine.setId(resultSet.getInt(1));
+                magazine.setName(resultSet.getString(2));
+                magazine.setReceiveDate(format.parse(resultSet.getString(3)));
+                magazine.setNumber(resultSet.getInt(4));
+                magazine.setEmployeeName(resultSet.getString(5));
+                magazine.setPosition(resultSet.getString(6));
+                receivedMagazineList.add(magazine);
+
+            }
+            for(ReceivedMagazine magazine:receivedMagazineList){
+                GregorianCalendar calendar=new GregorianCalendar();
+                calendar.setTime(magazine.getReceiveDate());
+                if(id==magazine.getId()&&calendar.get(Calendar.MONTH)==month-1&&calendar.get(Calendar.YEAR)==year)
+                    System.out.println(magazine.getEmployeeName());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
