@@ -3,12 +3,12 @@ package pack;
 import java.sql.*;
 import java.util.Scanner;
 
-public class Changer{
+public class TableChanger {
     private String tableName;
     private int columns;
     private  String[]columnsName;
     private Connection connection;
-    public Changer(String tableName,int columns,String[] columnsName) {
+    public TableChanger(String tableName, int columns, String[] columnsName) {
         this.tableName=tableName;
         this.columns=columns;
         this.columnsName=columnsName;

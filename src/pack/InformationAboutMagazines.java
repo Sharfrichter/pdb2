@@ -1,9 +1,11 @@
 package pack;
 
+import model.ReceivedMagazine;
+import model.SubscribedMagazine;
+
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Date;
 
 public abstract class InformationAboutMagazines {
 
@@ -11,7 +13,7 @@ public abstract class InformationAboutMagazines {
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbz2", "root", "root");
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Do you want information about subscribed or received magazines (1/2)");
+            System.out.println("Введите число из какой таблицы брать данные 1:подписки 2:полученные");
             if (scanner.nextInt() == 1) {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM subscribed");
@@ -43,7 +45,7 @@ public abstract class InformationAboutMagazines {
             SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbz2", "root", "root");
             Statement statement = connection.createStatement();
-            System.out.println("Введите дату подписки");
+            System.out.println("Введите год подписки");
             int year=new Scanner(System.in).nextInt();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM subscribed");
             while (resultSet.next()) {
