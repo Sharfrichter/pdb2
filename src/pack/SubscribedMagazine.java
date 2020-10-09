@@ -1,6 +1,8 @@
 package pack;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class SubscribedMagazine {
     private int id;
@@ -66,5 +68,11 @@ public class SubscribedMagazine {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        return id + " " + name + " " + format.format(dateOfBegin) + " " + format.format(dateOfEnd) + " " + cost + " " + period + " " + deliveryType;
     }
 }
