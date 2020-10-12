@@ -19,8 +19,7 @@ public class TableChanger {
         }
 
     }
-    /*private String[] columnsSubscribed={"подписной индекс","название","дата начала подписки(гггг-мм-дд)","дата окончания(гггг-мм-дд)","цена","периодичность","тип доставки"};
-    private String[] columnsReceived={"подписной индекс","название","дата получения(гггг-мм-дд)","номер","имя получившего сотрудника","должность"};*/
+
 
     public void addRecord(){
         try {
@@ -39,13 +38,7 @@ public class TableChanger {
         }
     }
 
-    /*public void addRecordToSubscribed()//Функция добавления в таблицу
-    {
-        addRecord("subscribed",7,columnsSubscribed);
-    };
-    public void addRecordToReceived(){
-        addRecord("received",6,columnsReceived);
-    }*/
+
     
     public void changeRecord()//функция изменения записи
     {
@@ -86,5 +79,29 @@ public class TableChanger {
             e.printStackTrace();
         }
 
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
+    public String[] getColumnsName() {
+        return columnsName;
+    }
+
+    public void setColumnsName(String[] columnsName) {
+        this.columnsName = columnsName;
     }
 }
